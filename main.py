@@ -6,17 +6,41 @@ def menu():
 	3 - Take Off Backpack
 	4 - Change Name
 	5 - Display Intro
+	6 - Exit
 	""")
 
-	choice = 7
-	while choice not in range(6):
+	choice = 8
+	while choice not in range(7):
 		try:
 			choice = int(input("Choose an option:\n"))
 		except:
 			print("That wasn't a number.")
 	return choice
 
-intro = """
+
+
+def control():
+	print("""CONTROLS
+	North
+	East
+	South
+	West
+	Up
+	Down
+	Menu""")
+	diroption = [north, south, east, west, up, down, n, s, e, w, u, p, menu]
+	path = input("Choose an option.")
+	while path not in diroptions:
+		try:
+			path.lower
+		except:
+			print(f"{path} is not an option.\nTry again.")
+			path = input("Choose a option.")
+	return path
+
+
+def intro():
+	intro = """
 ________________________Welcome to Vexatia________________________
 A city in the 1600s that is shrouded in mystery and danger. 
 This bustling metropolis was once a thriving hub of trade and culture, 
@@ -34,16 +58,14 @@ both human and robotic, who may help or hinder your progress.
 However, the stakes are high, and the slightest misstep could mean the 
 end of your mission - and perhaps even the end of the world as we know 
 it. Can you outwit the robotic beings and save Vexatia from their clutches? 
-The fate of the city and its inhabitants rests in your hands.
-"""
+The fate of the city and its inhabitants rests in your hands."""
 
-print(intro)
-
-skip_intro = "a"
-choice_accepted = "Yes" "No" "yes" "no" 
-yes = "Yes" "yes"
-no = "No" "no"
-instructions = """
+def instructions():
+	skip_intro = "a"
+	choice_accepted = "Yes" "No" "yes" "no" 
+	yes = "Yes" "yes"
+	no = "No" "no"
+	instructions = """
 The game is simple, you can either move North, East, South, West.
 Only move in a direction using the first letter, example: N, E, S, W
 
@@ -69,17 +91,21 @@ Vexatia thoroughly, gather information from its inhabitants, and use your wits
 and skills to overcome the challenges that lie ahead. 
 Good luck, time traveler - the fate of Vexatia rests in your hands."""
 
-while skip_intro not in choice_accepted:
-	try:
-		skip_intro = input("""Would You Like To Skip Intro? \nYes or No\n""")
-	except:
-		print("That wasn't an option!")
+	while skip_intro not in choice_accepted:
+		try:
+			skip_intro = input("""Would You Like To Skip Intro? \nYes or No\n""")
+		except:
+			print("That wasn't an option!")
 
-if skip_intro is no:
-	print(instructions)
+	if skip_intro is no:
+		print(instructions)
+		intro()
 
-
-	
-	 
+def main():
+	play = True
+	instructions()
+	print(f"Following are your basic commands you will need throughout the game.\n{menu}")
+	while play == true:
+		action = control()
 		
-
+main()
